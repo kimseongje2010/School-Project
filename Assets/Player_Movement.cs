@@ -10,12 +10,15 @@ public class Player_Movement : MonoBehaviour
     public static bool leftFlag = false;
     public static bool groundFlag = false;
     // dash
-    public float dashVelocity = 30;
-    public float dashCooldown = 3;
+    public float dashVelocity;
+    public float dashCooldown;
+    public float formConversion_Cooldown = 3f;
     
-    float time;
+    float D_time; // Dash time
+    float F_time; // FormConversion time
     bool Can_dash = true;
-    bool dashAction = false;
+    bool Can_formConversion = true;
+    public static bool dashAction = false;
     float dashSpeed;
 
     // 폼 변환
@@ -32,85 +35,131 @@ public class Player_Movement : MonoBehaviour
         leftFlag = false;
         groundFlag = false;
 
-        time = 0;
+        D_time = 0;
+        F_time = 0;
         Can_dash = true;
+        Can_formConversion = true;
         dashAction = false;
+        dashSpeed = 0;        
     }
 
     void Update()
-    {
+    {   
         vx = 0;
-        if (dashAction)
+        // if (dashAction)
+        // {
+            
+        // }
+        // else
+        if (!Slash.slashAction)
         {
-            rbody.linearVelocity = new Vector2(dashSpeed, 0);
-            dashSpeed *= 0.9f;
-        }
-        else
-        {
-            // standard movement
-            if (Input.GetKey("d"))
+            if (!dashAction)
             {
-                vx = speed;
-                leftFlag = false;
-            }
-            if (Input.GetKey("a"))
-            {
-                vx = -speed;
-                leftFlag = true;
-            }
-            if (Input.GetKeyDown("space") && groundFlag)
-            {
-                Jump();
-            }
-
-            if (formConversion) // 총 쏘는 동안 느리게 이동
-            {
-                if (Input.GetMouseButton(0) && ShotBullet.BulletNumber > 0)
+                // standard movement
+                if (Input.GetKey("d"))
                 {
-                    rbody.linearVelocity = new Vector2(0.5f * vx, rbody.linearVelocity.y); 
+                    vx = speed;
+                    leftFlag = false;
+                }
+                if (Input.GetKey("a"))
+                {
+                    vx = -speed;
+                    leftFlag = true;
+                }
+                if (Input.GetKeyDown("space") && groundFlag)
+                {
+                    Jump();
+                }
+
+                if (formConversion) // 총 쏘는 동안 느리게 이동
+                {
+                    if (Input.GetMouseButton(0) && ShotBullet.BulletNumber > 0)
+                    {
+                        rbody.linearVelocity = new Vector2(0.5f * vx, rbody.linearVelocity.y); 
+                    }
+                    else
+                    {
+                        rbody.linearVelocity = new Vector2(vx, rbody.linearVelocity.y);   
+                    }
                 }
                 else
                 {
-                    rbody.linearVelocity = new Vector2(vx, rbody.linearVelocity.y);   
+                    rbody.linearVelocity = new Vector2(vx, rbody.linearVelocity.y);
                 }
-            }
-            else
-            {
-                rbody.linearVelocity = new Vector2(vx, rbody.linearVelocity.y);
-            }
-            this.GetComponent<SpriteRenderer>().flipX = leftFlag;
-
-            // dash
-            if (leftFlag == false)
-            {
-                dashSpeed = dashVelocity;
-            }
-            else
-            {
-                dashSpeed = -dashVelocity;
+                this.GetComponent<SpriteRenderer>().flipX = leftFlag;
             }
         }
-        
-        if (Can_dash)
+
+        if (Can_dash && !Slash.slashAction)
         {
-            if (Input.GetKeyDown("left shift"))
+            if (Input.GetKeyDown("left shift")) // dash 키 입력 감지
             {
                 Can_dash = false;
                 dashAction = true;
+
+                if (leftFlag == false)
+                {
+                    dashSpeed = dashVelocity;
+                }
+                else
+                {
+                    dashSpeed = -dashVelocity;
+                }
             }
 
-            time = 0;
+            D_time = 0;
         }
-        else
-        {
-            time += Time.deltaTime;
 
-            if (time >= dashCooldown)
+        if (!Can_dash) // dash 시간 계산
+        {
+            D_time += Time.deltaTime;
+
+            if (D_time >= dashCooldown)
             {
                 Can_dash = true;
             }
         }
         
+        //form Conversion
+        if (Can_formConversion)
+        {
+            if (Input.GetKeyDown("r"))
+            {
+                Can_formConversion = false;
+                formConversion = !formConversion;
+                ShotBullet.BulletNumber = 30;
+
+                if (formConversion)
+                {
+                    Debug.Log("모드 변환: 원거리 살상");
+                }
+                else
+                {
+                    Debug.Log("모드 변환: 근접 살상");
+                }
+            }
+
+            F_time = 0;
+        }
+        else
+        {
+            F_time += Time.deltaTime;
+            if (F_time >= formConversion_Cooldown)
+            {
+                F_time = 0;
+                Can_formConversion = true;
+            }
+        }
+    }
+
+    void FixedUpdate()
+    {
+        if (dashAction)
+        {
+            rbody.linearVelocity = new Vector2(dashSpeed, 0);
+            dashSpeed *= 0.9f;
+        }
+
         if (leftFlag == false)
         {
             if (dashSpeed < 10)
@@ -128,20 +177,6 @@ public class Player_Movement : MonoBehaviour
             }
         }
 
-        //form Conversion
-        if (Input.GetKeyDown("r"))
-        {
-            formConversion = !formConversion;
-
-            if (formConversion)
-            {
-                Debug.Log("모드 변환: 원거리 살상");
-            }
-            else
-            {
-                Debug.Log("모드 변환: 근접 살상");
-            }
-        }
     }
 
     void Jump()
