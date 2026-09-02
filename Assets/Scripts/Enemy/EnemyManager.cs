@@ -3,9 +3,11 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour
 {
     [SerializeField] private GameObject follower;
+    [SerializeField] private GameObject deathEffect;
     [SerializeField] private float hp = 100f;
     [SerializeField] private float speed;
     [SerializeField] private float attackInterval = 4.0f;
+    [SerializeField] private float bulletDamage = 5f;
     private EnemyAttack enemyAttack;
     private float attackTimer = 0;
     public GameObject target;
@@ -29,6 +31,11 @@ public class EnemyManager : MonoBehaviour
     {
         Vector3 targetPos = target.transform.position;
         
+        if (hp <= 0)
+        {
+            Die();
+        }
+
         if (followTarget)
         {
             follower.GetComponent<PointAtTarget>().PointAt(targetPos);
@@ -43,9 +50,20 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
+    void Die()
+    {
+        Instantiate(deathEffect, transform.position, Quaternion.identity);
+        Destroy(gameObject);
+    }
+
     public void TakeDamage(float damage)
     {
         hp -= damage;
+    }
+
+    public void TakeBulletDamage()
+    {
+        hp -= bulletDamage;
     }
 
     public float GetHP()
