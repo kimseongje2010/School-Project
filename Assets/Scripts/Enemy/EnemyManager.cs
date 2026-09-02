@@ -3,9 +3,11 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour
 {
     [SerializeField] private GameObject follower;
-    [SerializeField] private float hp = 100;
+    [SerializeField] private float hp = 100f;
     [SerializeField] private float speed;
-    private float attackTimer;
+    [SerializeField] private float attackInterval = 4.0f;
+    private EnemyAttack enemyAttack;
+    private float attackTimer = 0;
     public GameObject target;
     public bool followTarget;
 
@@ -13,6 +15,7 @@ public class EnemyManager : MonoBehaviour
     {
         // rb = GetComponent<Rigidbody2D>();
         // rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        enemyAttack = GetComponent<EnemyAttack>();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -32,6 +35,12 @@ public class EnemyManager : MonoBehaviour
         }
 
         attackTimer += Time.deltaTime;
+
+        if (attackTimer >= attackInterval)
+        {
+            enemyAttack.AttackAt(targetPos);
+            attackTimer = 0f;
+        }
     }
 
     public void TakeDamage(float damage)
