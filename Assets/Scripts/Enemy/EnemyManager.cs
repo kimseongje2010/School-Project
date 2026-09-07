@@ -8,6 +8,7 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float attackInterval = 4.0f;
     [SerializeField] private float bulletDamage = 5f;
+    [SerializeField] private float slashDamage = 50f;
     private EnemyAttack enemyAttack;
     private float attackTimer = 0;
     public GameObject target;
@@ -64,6 +65,11 @@ public class EnemyManager : MonoBehaviour
     public void TakeBulletDamage()
     {
         hp -= bulletDamage;
+    }
+
+    public void TakeSlashDamage()
+    {
+        hp -= slashDamage;
     }
 
     public float GetHP()

@@ -15,6 +15,6 @@ public class PointAtTarget : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(transform.position, dirVector.normalized, 100f, mask);
         lr.SetPosition(0, transform.position);
         lr.SetPosition(1, hit.point);
-        Debug.Log(hit.collider);
+        // Debug.Log(hit.collider);
     }
 }
