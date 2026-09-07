@@ -25,5 +25,10 @@ public class Bullet_Destroy : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        if (other.TryGetComponent<EnemyManager>(out EnemyManager component))
+        {
+            component.TakeBulletDamage();
+            Destroy(gameObject);
+        }
     }
 }
