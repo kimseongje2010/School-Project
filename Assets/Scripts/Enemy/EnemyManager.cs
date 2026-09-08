@@ -9,15 +9,22 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private float attackInterval = 4.0f;
     [SerializeField] private float bulletDamage = 5f;
     [SerializeField] private float slashDamage = 50f;
+    [SerializeField] private bool isMovable;
     private EnemyAttack enemyAttack;
+    private EnemyMovement enemyMovement;
+    private Rigidbody2D rb;
     private float attackTimer = 0;
     public GameObject target;
     public bool followTarget;
 
     void Awake()
     {
-        // rb = GetComponent<Rigidbody2D>();
-        // rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        if (isMovable)
+        {
+            rb = GetComponent<Rigidbody2D>();
+            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+            enemyMovement = GetComponent<EnemyMovement>();
+        }
         enemyAttack = GetComponent<EnemyAttack>();
     }
 
