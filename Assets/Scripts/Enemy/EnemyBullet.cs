@@ -34,6 +34,7 @@ public class EnemyBullet : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             // Debug.Log("collided with player");
+            collision.gameObject.GetComponent<PlayerHealth>().TakeBulletDamage();
             DestroySelf();
         }
     }

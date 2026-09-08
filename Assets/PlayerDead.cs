@@ -11,7 +11,12 @@ public class PlayerDead : MonoBehaviour
     {
         if (this.transform.position.y < -7)
         {
-            Time.timeScale = 0;
+            PlayerDie();
         }
+    }
+    
+    public void PlayerDie()
+    {
+        Time.timeScale = 0;
     }
 }
