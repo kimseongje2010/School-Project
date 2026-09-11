@@ -2,6 +2,14 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
+    public enum State
+    {
+        idle,
+        attack
+    }
+
+    [SerializeField] private PointAtTarget pointAtTarget;
+    [SerializeField] private Rigidbody2D rb;
     [SerializeField] private GameObject follower;
     [SerializeField] private GameObject deathEffect;
     [SerializeField] private float hp = 100f;
@@ -10,12 +18,13 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private float bulletDamage = 5f;
     [SerializeField] private float slashDamage = 50f;
     [SerializeField] private bool isMovable;
+    [SerializeField] private float attackRange = 10f;
     private EnemyAttack enemyAttack;
     private EnemyMovement enemyMovement;
-    private Rigidbody2D rb;
     private float attackTimer = 0;
     public GameObject target;
-    public bool followTarget;
+    public bool lookAtTarget;
+    public State state;
 
     void Awake()
     {
@@ -34,27 +43,53 @@ public class EnemyManager : MonoBehaviour
         target = GameObject.FindGameObjectWithTag("Player");
     }
 
+    void OnDrawGizmos()
+    {
+        Gizmos.color = new Color(1f, 1f, 1f, 0.2f);
+        Gizmos.DrawWireSphere(transform.position, attackRange);
+    }
+
     // Update is called once per frame
     void Update()
     {
         Vector3 targetPos = target.transform.position;
-        
+
+        if (Vector3.Distance(targetPos, transform.position) <= attackRange && pointAtTarget.isSeeingPlayer)
+        {
+            state = State.attack;
+            pointAtTarget.drawLine = true;
+        }
+        else
+        {
+            state = State.idle;
+            pointAtTarget.drawLine = false;
+        }
+
         if (hp <= 0)
         {
             Die();
         }
 
-        if (followTarget)
+        if (lookAtTarget)
         {
             follower.GetComponent<PointAtTarget>().PointAt(targetPos);
         }
 
-        attackTimer += Time.deltaTime;
-
-        if (attackTimer >= attackInterval)
+        switch (state)
         {
-            enemyAttack.AttackAt(targetPos);
-            attackTimer = 0f;
+            case State.attack:
+                attackTimer += Time.deltaTime;
+
+                if (attackTimer >= attackInterval)
+                {
+                    enemyAttack.AttackAt(targetPos);
+                    attackTimer = 0f;
+                }
+
+                break;
+
+            case State.idle:
+                break;
         }
     }
 

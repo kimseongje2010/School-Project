@@ -106,6 +106,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PointAtTarget
   lr: {fileID: 5383127578552422904}
+  isSeeingPlayer: 0
+  drawLine: 0
 --- !u!120 &5383127578552422904
 LineRenderer:
   serializedVersion: 3
@@ -323,6 +325,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 364dae0b96a38064fbb7eabc5918d3a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyManager
+  pointAtTarget: {fileID: 5758176150448159136}
+  rb: {fileID: 0}
   follower: {fileID: 5469765527739320665}
   deathEffect: {fileID: 6224587211740163262, guid: dddbeb0321d4d214d85adbf8520afcb9, type: 3}
   hp: 100
@@ -330,8 +334,11 @@ MonoBehaviour:
   attackInterval: 4
   bulletDamage: 20
   slashDamage: 50
+  isMovable: 0
+  attackRange: 8
   target: {fileID: 0}
-  followTarget: 1
+  lookAtTarget: 1
+  state: 0
 --- !u!114 &5660985240223580256
 MonoBehaviour:
   m_ObjectHideFlags: 0
