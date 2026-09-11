@@ -24,6 +24,8 @@ public class Player_Movement : MonoBehaviour
     // 폼 변환
     public static bool formConversion = false; //false는 검, true는 총.
 
+    public static bool jumpAction = false; 
+
     Rigidbody2D rbody;
 
     void Start()
@@ -40,11 +42,20 @@ public class Player_Movement : MonoBehaviour
         Can_dash = true;
         Can_formConversion = true;
         dashAction = false;
-        dashSpeed = 0;        
+        dashSpeed = 0;
     }
 
     void Update()
     {   
+        if (Input.GetKeyDown("space") && groundFlag) //dash나 slash 중 space를 누르면 dash나 slash가 끝난 후 작동하는 기능
+        {
+            jumpAction = true;
+        }
+        if (jumpAction && !dashAction && !Slash.slashAction)
+        {
+            Jump();
+        }
+
         vx = 0;
         // if (dashAction)
         // {
@@ -65,10 +76,6 @@ public class Player_Movement : MonoBehaviour
                 {
                     vx = -speed;
                     leftFlag = true;
-                }
-                if (Input.GetKeyDown("space") && groundFlag)
-                {
-                    Jump();
                 }
 
                 if (formConversion) // 총 쏘는 동안 느리게 이동
@@ -181,6 +188,7 @@ public class Player_Movement : MonoBehaviour
 
     void Jump()
     {
+        jumpAction = false;
         rbody.linearVelocity = new Vector2(rbody.linearVelocity.x, 0);
         rbody.AddForce(new Vector2(0, jumpPower), ForceMode2D.Impulse);
     }
