@@ -1,25 +1,13 @@
 fileFormatVersion: 2
-guid: 771481d2adcecae40a2027def0e9d8fb
+guid: 8adae3bdb21259346b1fcfaedec5555d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4810702507026764722
-    second: New Piskel (7)_0
+      213: 2624438517592553720
+    second: SuisideDrone_0
   - first:
-      213: 226647019809873599
-    second: New Piskel (7)_1
-  - first:
-      213: -7198345155242531674
-    second: New Piskel (7)_2
-  - first:
-      213: 9072680028889410737
-    second: New Piskel (7)_3
-  - first:
-      213: 2111924360901239068
-    second: New Piskel (7)_4
-  - first:
-      213: 1457467940822833474
-    second: New Piskel (7)_5
+      213: 5079471645975516162
+    second: SuisideDrone_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -61,7 +49,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -128,133 +116,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: New Piskel (7)_0
+      name: SuisideDrone_0
       rect:
         serializedVersion: 2
-        x: 51
-        y: 78
-        width: 29
-        height: 31
+        x: 0
+        y: 128
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2b35963217c03c240800000000000000
-      internalID: 4810702507026764722
+      spriteID: 8f8f4f74de0eb6420800000000000000
+      internalID: 2624438517592553720
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New Piskel (7)_1
+      name: SuisideDrone_1
       rect:
         serializedVersion: 2
-        x: 21
-        y: 44
-        width: 30
-        height: 30
+        x: 128
+        y: 128
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fbe1b218346352300800000000000000
-      internalID: 226647019809873599
+      spriteID: 2041a01cc88ed7640800000000000000
+      internalID: 5079471645975516162
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New Piskel (7)_2
+      name: SuisideDrone_2
       rect:
         serializedVersion: 2
-        x: 52
-        y: 46
-        width: 30
-        height: 31
+        x: 0
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 6a46d1348375a1c90800000000000000
-      internalID: -7198345155242531674
+      spriteID: b58d1e05cdaf70e4f912f50860dcede1
+      internalID: 1787645342
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New Piskel (7)_3
+      name: SuisideDrone_3
       rect:
         serializedVersion: 2
-        x: 83
-        y: 47
-        width: 31
-        height: 30
+        x: 128
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 1bcebbaca62a8ed70800000000000000
-      internalID: 9072680028889410737
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: New Piskel (7)_4
-      rect:
-        serializedVersion: 2
-        x: 18
-        y: 24
-        width: 34
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c11230c44001f4d10800000000000000
-      internalID: 2111924360901239068
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: New Piskel (7)_5
-      rect:
-        serializedVersion: 2
-        x: 82
-        y: 30
-        width: 38
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 249d344ce57f93410800000000000000
-      internalID: 1457467940822833474
+      spriteID: 53551e356ccfd95488d61be762809a38
+      internalID: -1397131775
       vertices: []
       indices: 
       edges: []
@@ -263,7 +207,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 42c09f0a56ed0304d802c607ea1557b8
     internalID: 0
     vertices: []
     indices: 
@@ -271,14 +215,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":128.0,"y":128.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      New Piskel (7)_0: 4810702507026764722
-      New Piskel (7)_1: 226647019809873599
-      New Piskel (7)_2: -7198345155242531674
-      New Piskel (7)_3: 9072680028889410737
-      New Piskel (7)_4: 2111924360901239068
-      New Piskel (7)_5: 1457467940822833474
+      SuisideDrone_0: 2624438517592553720
+      SuisideDrone_1: 5079471645975516162
+      SuisideDrone_2: 1787645342
+      SuisideDrone_3: -1397131775
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

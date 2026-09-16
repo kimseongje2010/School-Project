@@ -8,6 +8,8 @@ TagManager:
   - CameraControl
   - Wall
   - Enemy
+  - Swing
+  - Bullet
   layers:
   - Default
   - TransparentFX
