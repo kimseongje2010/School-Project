@@ -34,7 +34,7 @@ public class Camera_Control : MonoBehaviour
             Camera.main.gameObject.transform.position = pos;
         }
 
-        Debug.Log(pos);
+        // Debug.Log(pos);
 
         // if (topPosition)
         // {
