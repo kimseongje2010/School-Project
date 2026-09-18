@@ -4,6 +4,7 @@ public class DroneExplosion : MonoBehaviour
 {
     public GameObject newPrefab;
     int hp = 2;
+    [SerializeField] private float damage = 10f;
 
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -26,6 +27,10 @@ public class DroneExplosion : MonoBehaviour
         else if (other.CompareTag("Swing"))
         {
             hp -= 2;
+        }
+        else if (other.CompareTag("Player"))
+        {
+            other.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
         }
     }
 
