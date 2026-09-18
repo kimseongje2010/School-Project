@@ -21,7 +21,7 @@ public class Camera_Control : MonoBehaviour
     {
         Vector3 pos = this.transform.position;
         pos.z = -10;
-        pos.y = base_pos.y;
+        pos.y = Camera.main.gameObject.transform.position.y;
         if (leftPosition)
         {
             pos.x = this.transform.position.x + 1.5f;
@@ -33,6 +33,8 @@ public class Camera_Control : MonoBehaviour
             pos.x = this.transform.position.x - 1.5f;
             Camera.main.gameObject.transform.position = pos;
         }
+
+        // Debug.Log(pos);
 
         // if (topPosition)
         // {
