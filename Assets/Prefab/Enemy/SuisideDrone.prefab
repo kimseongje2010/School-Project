@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8195282148259843244}
   - component: {fileID: 80541051115574572}
   m_Layer: 0
-  m_Name: SuisideDrone_0
+  m_Name: SuisideDrone
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

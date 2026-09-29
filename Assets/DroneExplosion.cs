@@ -15,6 +15,10 @@ public class DroneExplosion : MonoBehaviour
             ExplosionEffect.transform.position = pos;
             Destroy(this.gameObject);
         }
+        else if (collision.gameObject.CompareTag("Floor"))
+        {
+            Dead();
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -33,11 +37,16 @@ public class DroneExplosion : MonoBehaviour
     {
         if (hp <= 0 )
         {
-            Vector3 pos = this.transform.position;
-            pos.z = -0.3f;
-            GameObject ExplosionEffect = Instantiate(newPrefab) as GameObject;
-            ExplosionEffect.transform.position = pos;
-            Destroy(this.gameObject);
+            Dead();
         }
+    }
+
+    void Dead()
+    {
+        Vector3 pos = this.transform.position;
+        pos.z = -0.3f;
+        GameObject ExplosionEffect = Instantiate(newPrefab) as GameObject;
+        ExplosionEffect.transform.position = pos;
+        Destroy(this.gameObject);
     }
 }

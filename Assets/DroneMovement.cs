@@ -10,7 +10,7 @@ public class DroneMovement : MonoBehaviour
     Rigidbody2D rbody;
     Vector3 follow_pos;
     GameObject player;
-    
+    RaycastHit2D hit;
     
     void Start()
     {
@@ -25,12 +25,28 @@ public class DroneMovement : MonoBehaviour
         Vector3 p_Pos = player.transform.position;
         Vector3 pos = this.transform.position;
 
-        if (((pos.x - p_Pos.x) <= 6 || pos.x <= p_Pos.x) && !findPlayer)
+        // if (((pos.x - p_Pos.x) <= 6 || pos.x <= p_Pos.x) && !findPlayer)
+        // {
+        //     follow_pos = player.transform.position;
+        //     findPlayer = true;
+            
+        // }
+
+        //PhysX Raycast
+        Vector2 origin = transform.position;
+        Vector2 direction = new Vector2(p_Pos.x - pos.x, p_Pos.y - pos.y).normalized;
+
+        if (!findPlayer)
+        {
+        hit = Physics2D.Raycast(origin, direction, 6f);
+        }
+
+        if (!findPlayer && hit.collider != null && hit.collider.CompareTag("Player"))
         {
             follow_pos = player.transform.position;
             findPlayer = true;
-            
         }
+        Debug.DrawRay(origin, direction * 6f, Color.red);
     }
 
     void FixedUpdate()
