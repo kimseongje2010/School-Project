@@ -28,6 +28,6 @@ public class PointAtTarget : MonoBehaviour
         {
             isSeeingPlayer = false;
         }
-        // Debug.Log(hit.collider);
+        Debug.Log(hit.collider);
     }
 }
