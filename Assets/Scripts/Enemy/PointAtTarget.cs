@@ -13,7 +13,7 @@ public class PointAtTarget : MonoBehaviour
         float angle = Mathf.Atan2(dirVector.y, dirVector.x);
         transform.rotation = quaternion.Euler(0, 0, angle);
 
-        LayerMask mask = LayerMask.GetMask("Default");
+        LayerMask mask = LayerMask.GetMask("Default") + (1 << 7);
         RaycastHit2D hit = Physics2D.Raycast(transform.position, dirVector.normalized, 100f, mask);
 
         lr.enabled = drawLine;
