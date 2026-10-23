@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
+    public float maxHp = 100f;
     public float hp = 100f;
     public float damageMultiplier = 1f;
     public bool canBeDamaged = true;
