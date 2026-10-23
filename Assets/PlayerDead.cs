@@ -1,7 +1,11 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerDead : MonoBehaviour
 {
+
+    public string nextscene = "";
+
     void Start()
     {
         Time.timeScale = 1;
@@ -17,6 +21,6 @@ public class PlayerDead : MonoBehaviour
     
     public void PlayerDie()
     {
-        Time.timeScale = 0;
+        SceneManager.LoadScene(nextscene);
     }
 }
