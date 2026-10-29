@@ -2,15 +2,12 @@ using UnityEngine;
 
 public class Boss : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] private float hp;
+    [SerializeField] private float maxHp = 5000;
 
-    // Update is called once per frame
-    void Update()
+
+    private void Awake()
     {
-        
+        hp = maxHp;
     }
 }

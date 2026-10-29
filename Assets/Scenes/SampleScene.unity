@@ -930,6 +930,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestTurret
       objectReference: {fileID: 0}
+    - target: {fileID: 7247420003298309010, guid: c7f2ea20ce1d14945967d838869ad4e5, type: 3}
+      propertyPath: attackRange
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -968,7 +972,7 @@ RectTransform:
   m_Father: {fileID: 1290224245}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1176,7 +1180,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8178858203212749775, guid: 7b3deba29a7f9cc42bf9f5c5fce8e5b0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -8.64
       objectReference: {fileID: 0}
     - target: {fileID: 8178858203212749775, guid: 7b3deba29a7f9cc42bf9f5c5fce8e5b0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -8612,6 +8616,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df5947d6ccd85d9449d1d3720488aa92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Left
+--- !u!114 &1534067229 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3146705540554101485, guid: 0d1fc9ca19834214c80233586c88a41f, type: 3}
+  m_PrefabInstance: {fileID: 66340425}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 290e4ab1ae4f3044e92e5763613972e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
 --- !u!1 &1546213509
 GameObject:
   m_ObjectHideFlags: 0
@@ -8907,7 +8922,7 @@ Transform:
   m_GameObject: {fileID: 1983807386}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -29}
+  m_LocalPosition: {x: 0, y: 0, z: -16.63}
   m_LocalScale: {x: 30, y: 20, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8930,7 +8945,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2093339865
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8964,7 +8979,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2c46e0ce6d3fc241b8ed2c0ccf14f07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthBar
-  playerHealth: {fileID: 0}
+  playerHealth: {fileID: 1534067229}
   slider: {fileID: 2093339867}
 --- !u!114 &2093339867
 MonoBehaviour:

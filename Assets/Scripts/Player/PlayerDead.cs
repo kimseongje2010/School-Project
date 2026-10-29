@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerDead : MonoBehaviour
 {
@@ -28,6 +29,6 @@ public class PlayerDead : MonoBehaviour
     public void PlayerDie()
     {
         isDead = true;
-        // SceneManager.LoadScene(nextscene);
+        SceneManager.LoadScene("DeadScene");
     }
 }

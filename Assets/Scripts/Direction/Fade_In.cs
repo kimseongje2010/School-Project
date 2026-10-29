@@ -16,7 +16,7 @@ public class Fade_In : MonoBehaviour
     void FixedUpdate()
     {
         Vector3 pos = Camera.main.gameObject.transform.position;
-        pos.z = 0;
+        pos.z = -10;
         this.transform.position = pos;
 
         if (transparency > 0)
