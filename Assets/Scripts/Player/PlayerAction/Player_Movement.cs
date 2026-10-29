@@ -47,6 +47,8 @@ public class Player_Movement : MonoBehaviour
 
     void Update()
     {   
+        if (PlayerDead.isDead) return;
+
         if (Input.GetKeyDown("space") && groundFlag) //dash나 slash 중 space를 누르면 dash나 slash가 끝난 후 작동하는 기능
         {
             jumpAction = true;

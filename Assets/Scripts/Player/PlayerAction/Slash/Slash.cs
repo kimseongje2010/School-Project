@@ -30,6 +30,8 @@ public class Slash : MonoBehaviour
 
     void Update()
     {
+        if (PlayerDead.isDead) return;
+
         Swing_Disappear.p_Position = this.transform.position;
         
         if (Player_Movement.formConversion == false)

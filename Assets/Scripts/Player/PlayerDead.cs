@@ -1,14 +1,15 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerDead : MonoBehaviour
 {
 
     public string nextscene = "";
+    public static bool isDead = false;
 
     void Start()
     {
         Time.timeScale = 1;
+        isDead = false;
     }
 
     void Update()
@@ -17,10 +18,16 @@ public class PlayerDead : MonoBehaviour
         {
             PlayerDie();
         }
+
+        // if (isDead)    
+        // {
+        //     Debug.Log("플레이어가 죽었습니다");
+        // }S
     }
     
     public void PlayerDie()
     {
-        SceneManager.LoadScene(nextscene);
+        isDead = true;
+        // SceneManager.LoadScene(nextscene);
     }
 }

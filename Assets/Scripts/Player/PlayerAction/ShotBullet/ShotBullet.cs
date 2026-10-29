@@ -21,6 +21,8 @@ public class ShotBullet : MonoBehaviour
 
     void Update()
     {
+        if (PlayerDead.isDead) return;
+
         if (Player_Movement.formConversion)
         {
             if (BulletNumber > 0)
