@@ -5,7 +5,8 @@ public class Swing_Disappear : MonoBehaviour
     public float disappearTime = 0.2f;
     float time;
     bool right;
-    bool didGaveDamage = false;
+    bool didGiveDamage = false;
+    bool didGiveDamageToBoss = false;
 
     public static Vector3 p_Position;
 
@@ -53,10 +54,16 @@ public class Swing_Disappear : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         // Debug.Log("triggered" + collision.gameObject);
-        if (collision.gameObject.TryGetComponent<EnemyManager>(out EnemyManager component) && !didGaveDamage)
+        if (collision.gameObject.TryGetComponent<EnemyManager>(out EnemyManager component) && !didGiveDamage)
         {
             component.TakeSlashDamage();
-            didGaveDamage = true;
+            // didGaveDamage = true;
+            // Debug.Log("damaged");
+        }
+        if (collision.gameObject.TryGetComponent<Boss>(out Boss component1) && !didGiveDamageToBoss)
+        {
+            component.TakeSlashDamage();
+            didGiveDamageToBoss = true;
             // Debug.Log("damaged");
         }
     }

@@ -4,10 +4,17 @@ public class Boss : MonoBehaviour
 {
     public static Boss Instance{ get; private set; }
 
+    public enum BossState
+    {
+        Idle,
+        Telegraph,
+        Attacking,
+        Recovery,
+        Dead
+    }
     public float hp;
 
-
-    [SerializeField] private GameObject defaultBulletObj;
+    [SerializeField] private GameObject player;
     [SerializeField] private float maxHp = 5000;
 
     private void Awake()
@@ -24,5 +31,10 @@ public class Boss : MonoBehaviour
     private void Update()
     {
         
+    }
+
+    public void GetDamaged(float damage)
+    {
+        hp -= damage;
     }
 }
