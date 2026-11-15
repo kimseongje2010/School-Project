@@ -30,5 +30,10 @@ public class Bullet_Destroy : MonoBehaviour
             component.TakeBulletDamage();
             Destroy(gameObject);
         }
+        if (other.TryGetComponent<Boss>(out Boss component1))
+        {
+            component1.TakeBulletDamage();
+            Destroy(gameObject);
+        }
     }
 }

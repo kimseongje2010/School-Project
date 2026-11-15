@@ -1,0 +1,407 @@
+fileFormatVersion: 2
+guid: 30a315de575a44b0d83192708309cbfa
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -9032777077243989759
+    second: shield_Sheet-export 1_0
+  - first:
+      213: -6614151221076787536
+    second: shield_Sheet-export 1_1
+  - first:
+      213: -5193763445455283741
+    second: shield_Sheet-export 1_2
+  - first:
+      213: 3852813722189403352
+    second: shield_Sheet-export 1_3
+  - first:
+      213: -675805255787994167
+    second: shield_Sheet-export 1_4
+  - first:
+      213: 2950889758834606358
+    second: shield_Sheet-export 1_5
+  - first:
+      213: 9140099451165836840
+    second: shield_Sheet-export 1_6
+  - first:
+      213: -5134032209799782840
+    second: shield_Sheet-export 1_7
+  - first:
+      213: -5541394162926739266
+    second: shield_Sheet-export 1_8
+  - first:
+      213: 3624205191541411429
+    second: shield_Sheet-export 1_9
+  - first:
+      213: 7177867749802582115
+    second: shield_Sheet-export 1_10
+  - first:
+      213: -9133112146099673095
+    second: shield_Sheet-export 1_11
+  - first:
+      213: 1572532941812653951
+    second: shield_Sheet-export 1_12
+  - first:
+      213: 1317477084970006337
+    second: shield_Sheet-export 1_13
+  - first:
+      213: 2769418964084501499
+    second: shield_Sheet-export 1_14
+  - first:
+      213: 7506524420569833118
+    second: shield_Sheet-export 1_15
+  - first:
+      213: 932030426643888333
+    second: shield_Sheet-export 1_16
+  - first:
+      213: -8515214817507998855
+    second: shield_Sheet-export 1_17
+  - first:
+      213: -6568052920644460503
+    second: shield_Sheet-export 1_18
+  - first:
+      213: 5860563068773342433
+    second: shield_Sheet-export 1_19
+  - first:
+      213: -8297623598455806180
+    second: shield_Sheet-export 1_20
+  - first:
+      213: -7230290744348176418
+    second: shield_Sheet-export 1_21
+  - first:
+      213: -3377123790159627511
+    second: shield_Sheet-export 1_22
+  - first:
+      213: -4811013328768224735
+    second: shield_Sheet-export 1_23
+  - first:
+      213: 1050304121718358285
+    second: shield_Sheet-export 1_24
+  - first:
+      213: 1893795589403177525
+    second: shield_Sheet-export 1_25
+  - first:
+      213: 32157917389824936
+    second: shield_Sheet-export 1_26
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: shield_Sheet-export 1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 101b49f1b1125a280800000000000000
+      internalID: -9032777077243989759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shield_Sheet-export 1_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0be7009f180d534a0800000000000000
+      internalID: -6614151221076787536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shield_Sheet-export 1_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e99a320aab0ce7b0800000000000000
+      internalID: -5193763445455283741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shield_Sheet-export 1_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d499d0daa1f77530800000000000000
+      internalID: 3852813722189403352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shield_Sheet-export 1_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c32a6f43be0f96f0800000000000000
+      internalID: -675805255787994167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shield_Sheet-export 1_5
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 611cca6e99aa3f820800000000000000
+      internalID: 2950889758834606358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shield_Sheet-export 1_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8268b76460828de70800000000000000
+      internalID: 9140099451165836840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shield_Sheet-export 1_7
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84e587d08e040c8b0800000000000000
+      internalID: -5134032209799782840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shield_Sheet-export 1_8
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb0245e4e530913b0800000000000000
+      internalID: -5541394162926739266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: e99622d63dcaf476cb7b4ec16e487504
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      shield_Sheet-export 1_0: -9032777077243989759
+      shield_Sheet-export 1_1: -6614151221076787536
+      shield_Sheet-export 1_2: -5193763445455283741
+      shield_Sheet-export 1_3: 3852813722189403352
+      shield_Sheet-export 1_4: -675805255787994167
+      shield_Sheet-export 1_5: 2950889758834606358
+      shield_Sheet-export 1_6: 9140099451165836840
+      shield_Sheet-export 1_7: -5134032209799782840
+      shield_Sheet-export 1_8: -5541394162926739266
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

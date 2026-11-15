@@ -3,11 +3,17 @@ using UnityEngine;
 public class BossFloat : MonoBehaviour
 {
     [SerializeField] GameObject SpriteObj;
+    [SerializeField] GameObject DamageEffect;
     [SerializeField] private float fps = 12f;
     [SerializeField] private float frequency = 1f;
     [SerializeField] private float amplitude = 1f;
     private float t = 0;
     private float timer = 0;
+
+    private void Start()
+    {
+        Boss.Instance.BossHit += BossHitEventHandler;
+    }
 
     private void Update()
     {
@@ -28,5 +34,10 @@ public class BossFloat : MonoBehaviour
             transform.position.y + (Mathf.Sin(Mathf.PI * frequency * t) * amplitude),
             transform.position.z
             );
+    }
+
+    private void BossHitEventHandler(float damage)
+    {
+        Instantiate(DamageEffect, SpriteObj.transform);
     }
 }

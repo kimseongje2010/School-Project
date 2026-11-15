@@ -53,7 +53,7 @@ public class Swing_Disappear : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        // Debug.Log("triggered" + collision.gameObject);
+        // Debug.Log("triggered " + collision.gameObject);
         if (collision.gameObject.TryGetComponent<EnemyManager>(out EnemyManager component) && !didGiveDamage)
         {
             component.TakeSlashDamage();
@@ -62,7 +62,7 @@ public class Swing_Disappear : MonoBehaviour
         }
         if (collision.gameObject.TryGetComponent<Boss>(out Boss component1) && !didGiveDamageToBoss)
         {
-            component.TakeSlashDamage();
+            component1.TakeSlashDamage();
             didGiveDamageToBoss = true;
             // Debug.Log("damaged");
         }
