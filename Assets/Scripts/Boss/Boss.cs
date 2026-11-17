@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Categorization;
 
 public class Boss : MonoBehaviour
 {
@@ -23,20 +24,30 @@ public class Boss : MonoBehaviour
 
     [SerializeField] private GameObject player;
     [SerializeField] private float maxHp = 5000;
+    [SerializeField] private float attackStartDelay = 1f;
+    [SerializeField] private float attackTelegraphDelay = 1f;
+    [SerializeField] private float attackRecoverDelay = 1f;
+
+    [Header ("Laser Attack")]
+    private BossLaserAttack LA;
+    [SerializeField] private float LADuration = 4f;
+
     private BossInit bossInit;
-    private List<IEnumerator> attacks;
+    private List<Func<IEnumerator>> attacks = new();
+    // private float t = 0;
 
     private void Awake()
     {
         Instance = this;
         hp = maxHp;
         bossInit = GetComponent<BossInit>();
+        LA = GetComponent<BossLaserAttack>();
 
         bossState = BossState.Init;
 
-        attacks.Add(LaserAttack());
-        attacks.Add(BulletAttack());
-        attacks.Add(MissileAttack());
+        attacks.Add(LaserAttack);
+        // attacks.Add(BulletAttack());
+        // attacks.Add(MissileAttack());
     }
 
     private void Start()
@@ -56,29 +67,29 @@ public class Boss : MonoBehaviour
     {
         int idx = UnityEngine.Random.Range(0, attacks.Count - 1);
 
-        StartCoroutine(attacks[idx]);
+        StartCoroutine(attacks[idx]());
     }
 
     private IEnumerator LaserAttack()
     {
         bossState = BossState.StartAttack;
         Debug.Log("laser attack started!");
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(attackStartDelay);
 
+        // Telegraph
         bossState = BossState.Telegraph;
-        Debug.Log("laser attack telegraph");
+        LA.PrepareAttack(LADuration);
+        yield return new WaitForSeconds(attackTelegraphDelay);
 
-        yield return new WaitForSeconds(1f);
-
+        // Attack
         bossState = BossState.Attacking;
-        Debug.Log("laser attack activated");
+        LA.StartAttack();
+        yield return new WaitForSeconds(LADuration);
 
-        yield return new WaitForSeconds(1f);
-
+        // Recovery
         bossState = BossState.Recovery;
-        Debug.Log("laser attack deactivated");
-
-        yield return new WaitForSeconds(1f);
+        LA.EndAttack();
+        yield return new WaitForSeconds(attackRecoverDelay);
 
         bossState = BossState.Idle;
     }
