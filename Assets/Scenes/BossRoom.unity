@@ -416,9 +416,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Boss
   bossState: 0
-  hp: 2000
+  hp: 1000
   player: {fileID: 683377133}
-  maxHp: 2000
+  maxHp: 1000
   attackStartDelay: 1
   attackTelegraphDelay: 1
   attackRecoverDelay: 1
