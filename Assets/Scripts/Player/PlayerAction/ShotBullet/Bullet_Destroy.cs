@@ -1,22 +1,42 @@
+using Unity.VectorGraphics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Bullet_Destroy : MonoBehaviour
 {
+    [SerializeField] private Vector2 normalRange = new(9f, 5.2f);
+    [SerializeField] private Vector2 bossRoomRange = new(20f, 12f);
+    private GameObject camObj;
+    private bool isInBossRoom = false;
+
     void Start()
     {
-        
+        camObj = Camera.main.gameObject;
+        isInBossRoom = SceneManager.GetActiveScene().name == "BossRoom";
     }
 
     void Update()
     {
-        if (this.transform.position.x >= Camera.main.gameObject.transform.position.x + 9f
-        || this.transform.position.x <= Camera.main.gameObject.transform.position.x - 9f
-        || this.transform.position.y >= Camera.main.gameObject.transform.position.y + 5.2f
-        || this.transform.position.y <= Camera.main.gameObject.transform.position.y -5.2f)
+        float xDist = Mathf.Abs(transform.position.x - camObj.transform.position.x);
+        float yDist = Mathf.Abs(transform.position.y - camObj.transform.position.y);
+
+        if (
+            isInBossRoom && (yDist >= bossRoomRange.x || yDist >= bossRoomRange.y) ||
+            !isInBossRoom && (xDist >= normalRange.x || yDist >= normalRange.y)
+            )
         {
             Destroy(this.gameObject);
-            // Debug.Log("the bullet is delete");
+            Debug.Log("too far");
         }
+
+        // if (this.transform.position.x >= Camera.main.gameObject.transform.position.x + 9f
+        // || this.transform.position.x <= Camera.main.gameObject.transform.position.x - 9f
+        // || this.transform.position.y >= Camera.main.gameObject.transform.position.y + 5.2f
+        // || this.transform.position.y <= Camera.main.gameObject.transform.position.y -5.2f)
+        // {
+        //     Destroy(this.gameObject);
+        //     Debug.Log("too far");
+        // }
     }
 
     private void OnTriggerEnter2D(Collider2D other)

@@ -413,6 +413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c29efb226be36184b8507536e96ba9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Boss
+  bossState: 0
   hp: 0
   player: {fileID: 0}
   maxHp: 5000
