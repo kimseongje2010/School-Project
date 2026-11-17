@@ -419,10 +419,10 @@ MonoBehaviour:
   hp: 2000
   player: {fileID: 683377133}
   maxHp: 2000
-  LAStart: 1
-  LATelegraph: 1
-  LADuration: 4
-  LARecover: 1
+  attackStartDelay: 1
+  attackTelegraphDelay: 1
+  attackRecoverDelay: 1
+  LADuration: 5
 --- !u!4 &846627185
 Transform:
   m_ObjectHideFlags: 0
@@ -536,7 +536,7 @@ LineRenderer:
   m_MaskInteraction: 0
   m_Positions:
   - {x: 0, y: 0, z: 0}
-  - {x: 4.17, y: 0, z: 1}
+  - {x: 1, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -607,6 +607,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 868c6305de6d19c4e92073caa74a7d56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossLaserAttack
+  origin: {x: 0, y: 1.5}
 --- !u!1 &1332964264
 GameObject:
   m_ObjectHideFlags: 0
