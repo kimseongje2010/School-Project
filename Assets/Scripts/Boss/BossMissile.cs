@@ -24,19 +24,19 @@ public class BossMissile : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        t += Time.deltaTime;
+        t += Time.fixedDeltaTime;
         if (t >= lifetime)
         {
             DestroySelf();
         }
 
-        Vector3 vel = player.transform.position - transform.position;
-        vel.z = 0;
-        vel.Normalize();
+        Vector3 dir = player.transform.position - transform.position;
+        dir.z = 0;
+        dir.Normalize();
 
-        rb.AddForce(vel * speed);
+        rb.AddForce(dir * speed, ForceMode2D.Force);
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -66,5 +66,10 @@ public class BossMissile : MonoBehaviour
     {
         Instantiate(explosionEffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
+    }
+
+    public void Push(Vector2 force)
+    {
+        rb.AddForce(force, ForceMode2D.Impulse);
     }
 }
