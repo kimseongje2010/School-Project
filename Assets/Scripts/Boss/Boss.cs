@@ -34,6 +34,7 @@ public class Boss : MonoBehaviour
     [SerializeField] private float LADuration = 4f;
 
     private BossInit bossInit;
+    private BossFloat bossFloat;
     private List<Func<IEnumerator>> attacks = new();
     private Vector3 initPos;
     private float t = 0;
@@ -43,6 +44,7 @@ public class Boss : MonoBehaviour
         Instance = this;
         hp = maxHp;
         bossInit = GetComponent<BossInit>();
+        bossFloat = GetComponent<BossFloat>();
         LA = GetComponent<BossLaserAttack>();
 
         bossState = BossState.Init;
@@ -81,7 +83,7 @@ public class Boss : MonoBehaviour
 
         while (t <= time)
         {
-            transform.position = Vector3.Lerp(pos, targetPos, t / time);
+            transform.position = Vector3.Lerp(pos, targetPos, Mathf.SmoothStep(0f, 1f, t / time));
             yield return null;
         }
 
@@ -93,6 +95,7 @@ public class Boss : MonoBehaviour
         bossState = BossState.StartAttack;
         Debug.Log("laser attack started!");
         StartCoroutine(MoveTo(LAPos, 0.5f));
+        bossFloat.SetMovementActive(false);
         yield return new WaitForSeconds(attackStartDelay);
 
         // Telegraph
@@ -111,6 +114,7 @@ public class Boss : MonoBehaviour
         bossState = BossState.Recovery;
         LA.EndAttack();
         StartCoroutine(MoveTo(initPos, 0.5f));
+        bossFloat.SetMovementActive(true);
         yield return new WaitForSeconds(attackRecoverDelay);
 
         bossState = BossState.Idle;
