@@ -30,11 +30,13 @@ public class Boss : MonoBehaviour
 
     [Header ("Laser Attack")]
     private BossLaserAttack LA;
+    [SerializeField] private Vector3 LAPos;
     [SerializeField] private float LADuration = 4f;
 
     private BossInit bossInit;
     private List<Func<IEnumerator>> attacks = new();
-    // private float t = 0;
+    private Vector3 initPos;
+    private float t = 0;
 
     private void Awake()
     {
@@ -52,7 +54,7 @@ public class Boss : MonoBehaviour
 
     private void Start()
     {
-        
+        initPos = transform.position;
     }
 
     private void Update()
@@ -61,6 +63,8 @@ public class Boss : MonoBehaviour
         {
             DoAttack();
         }
+
+        t += Time.deltaTime;
     }
 
     private void DoAttack()
@@ -70,15 +74,32 @@ public class Boss : MonoBehaviour
         StartCoroutine(attacks[idx]());
     }
 
+    private IEnumerator MoveTo(Vector3 targetPos, float time)
+    {
+        t = 0;
+        Vector3 pos = transform.position;
+
+        while (t <= time)
+        {
+            transform.position = Vector3.Lerp(pos, targetPos, t / time);
+            yield return null;
+        }
+
+        yield return null;
+    }
+
     private IEnumerator LaserAttack()
     {
         bossState = BossState.StartAttack;
         Debug.Log("laser attack started!");
+        StartCoroutine(MoveTo(LAPos, 0.5f));
         yield return new WaitForSeconds(attackStartDelay);
 
         // Telegraph
         bossState = BossState.Telegraph;
+        LA.origin = LAPos;
         LA.PrepareAttack(LADuration);
+        Debug.Log("position set");
         yield return new WaitForSeconds(attackTelegraphDelay);
 
         // Attack
@@ -89,18 +110,19 @@ public class Boss : MonoBehaviour
         // Recovery
         bossState = BossState.Recovery;
         LA.EndAttack();
+        StartCoroutine(MoveTo(initPos, 0.5f));
         yield return new WaitForSeconds(attackRecoverDelay);
 
         bossState = BossState.Idle;
     }
 
-    IEnumerator BulletAttack()
+    private IEnumerator BulletAttack()
     {
         // Attack logic
         yield return new WaitForSeconds(2f);
     }
 
-    IEnumerator MissileAttack()
+    private IEnumerator MissileAttack()
     {
         // Attack logic
         yield return new WaitForSeconds(3f);

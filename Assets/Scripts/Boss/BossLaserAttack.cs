@@ -21,8 +21,9 @@ public class BossLaserAttack : MonoBehaviour
         if (startedAttack && t <= dur)
         {
             float x = Mathf.SmoothStep(0, 1, t / dur);
+            float pi = Mathf.PI;
 
-            Vector2 targetDir = new(Mathf.Cos((2 * math.PI * x) + (Mathf.PI / 2)), Mathf.Sin((2 * math.PI * x) + (Mathf.PI / 2)));
+            Vector2 targetDir = new(Mathf.Cos(pi*x-pi), Mathf.Sin(pi*x-pi));
             
             RaycastHit2D hit = Physics2D.Raycast(origin, targetDir);
             GameObject hitObj = hit.collider.gameObject;
@@ -46,7 +47,7 @@ public class BossLaserAttack : MonoBehaviour
     {
         dur = duration;
         lr.SetPosition(0, origin);
-        lr.SetPosition(1, new Vector3(0, 7, 0));
+        lr.SetPosition(1, new Vector3(-13, origin.y, 0));
     }
 
     public void StartAttack()
