@@ -423,7 +423,7 @@ MonoBehaviour:
   attackTelegraphDelay: 1
   attackRecoverDelay: 4
   LAPos: {x: 0, y: 5, z: 0}
-  LADuration: 5
+  LADuration: 3
 --- !u!4 &846627185
 Transform:
   m_ObjectHideFlags: 0
