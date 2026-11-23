@@ -48,4 +48,9 @@ public class EnemyBullet : MonoBehaviour
     {
         direction = dir;
     }
+
+    public void SetSpeed(float speed)
+    {
+        this.speed = speed;
+    }
 }
