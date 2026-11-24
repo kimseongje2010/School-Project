@@ -377,6 +377,7 @@ GameObject:
   - component: {fileID: 846627184}
   - component: {fileID: 846627183}
   - component: {fileID: 846627188}
+  - component: {fileID: 846627189}
   - component: {fileID: 846627186}
   - component: {fileID: 846627187}
   m_Layer: 2
@@ -423,7 +424,9 @@ MonoBehaviour:
   attackTelegraphDelay: 1
   attackRecoverDelay: 4
   LAPos: {x: 0, y: 5, z: 0}
-  LADuration: 3
+  LADuration: 4
+  BHPos: {x: 0, y: 0, z: 0}
+  BHDuration: 3
 --- !u!4 &846627185
 Transform:
   m_ObjectHideFlags: 0
@@ -609,6 +612,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossLaserAttack
   origin: {x: 0, y: 1.5}
+--- !u!114 &846627189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846627182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e060522575953d43a35ce9fedb14634, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossBulletHell
+  prefab: {fileID: 2487737882831963987, guid: 2d26a2d638f4f4c4289cfa626d7a9d38, type: 3}
+  pattern:
+  - position: {x: 0, y: 0, z: 0}
+    top: {x: 0, y: 1}
+    isCircle: 1
+    spread: 2
+    duration: 0.2
+    count: 8
+  - position: {x: 0, y: 0, z: 0}
+    top: {x: 0.9238795, y: 0.3826834}
+    isCircle: 1
+    spread: 2
+    duration: 0
+    count: 8
 --- !u!1 &1047570701
 GameObject:
   m_ObjectHideFlags: 0

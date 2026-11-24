@@ -32,6 +32,11 @@ public class Boss : MonoBehaviour
     private BossLaserAttack LA;
     [SerializeField] private Vector3 LAPos;
     [SerializeField] private float LADuration = 4f;
+    
+    [Header ("Bullet Hell")]
+    private BossBulletHell BH;
+    [SerializeField] private Vector3 BHPos;
+    [SerializeField] private float BHDuration = 4f;
 
     private BossInit bossInit;
     private BossFloat bossFloat;
@@ -46,11 +51,12 @@ public class Boss : MonoBehaviour
         bossInit = GetComponent<BossInit>();
         bossFloat = GetComponent<BossFloat>();
         LA = GetComponent<BossLaserAttack>();
+        BH = GetComponent<BossBulletHell>();
 
         bossState = BossState.Init;
 
         attacks.Add(LaserAttack);
-        // attacks.Add(BulletAttack());
+        attacks.Add(BulletAttack);
         // attacks.Add(MissileAttack());
     }
 
@@ -71,7 +77,7 @@ public class Boss : MonoBehaviour
 
     private void DoAttack()
     {
-        int idx = UnityEngine.Random.Range(0, attacks.Count - 1);
+        int idx = UnityEngine.Random.Range(0, attacks.Count);
 
         StartCoroutine(attacks[idx]());
     }
@@ -102,7 +108,7 @@ public class Boss : MonoBehaviour
         bossState = BossState.Telegraph;
         LA.origin = LAPos;
         LA.PrepareAttack(LADuration);
-        Debug.Log("position set");
+        // Debug.Log("position set");
         yield return new WaitForSeconds(attackTelegraphDelay);
 
         // Attack
@@ -122,8 +128,29 @@ public class Boss : MonoBehaviour
 
     private IEnumerator BulletAttack()
     {
-        // Attack logic
-        yield return new WaitForSeconds(2f);
+        bossState = BossState.StartAttack;
+        Debug.Log("bullet hell attack started!");
+        StartCoroutine(MoveTo(BHPos, 0.5f));
+        bossFloat.SetMovementActive(false);
+        yield return new WaitForSeconds(attackStartDelay);
+
+        // Telegraph
+        bossState = BossState.Telegraph;
+        BH.StartAttack(attackTelegraphDelay);   // 불렛스프레드 안에 텔레그래프 기능이 있음
+        yield return new WaitForSeconds(attackTelegraphDelay);
+
+        // Attack
+        bossState = BossState.Attacking;
+        yield return new WaitForSeconds(BHDuration);
+
+        // Recovery
+        bossState = BossState.Recovery;
+        BH.EndAttack();
+        StartCoroutine(MoveTo(initPos, 0.5f));
+        bossFloat.SetMovementActive(true);
+        yield return new WaitForSeconds(attackRecoverDelay);
+
+        bossState = BossState.Idle;
     }
 
     private IEnumerator MissileAttack()

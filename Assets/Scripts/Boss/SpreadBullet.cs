@@ -12,7 +12,7 @@ public class SpreadBullet : MonoBehaviour
     [SerializeField] private GameObject bullet;
     [SerializeField] private float speed = 1f;
     [SerializeField] private float interval = 0.1f;
-    [SerializeField] private int count = 8;
+    public int count = 8;
     [SerializeField] private int cycles = 2;
 
     private void Start()
@@ -54,11 +54,13 @@ public class SpreadBullet : MonoBehaviour
 
         for (int i = 0; i < count; i++)
         {
-            float angle = topAngle - (spread / 2f) + i * (spread / count);
-            Instantiate(telegraphObj, transform.position, Quaternion.Euler(0, 0, angle));
+            float angle = topAngle - (spread / 2f) + i * (spread / (count - 1));
+            Instantiate(telegraphObj, transform.position, Quaternion.Euler(0, 0, angle * Mathf.Rad2Deg));
         }
 
         yield return new WaitForSeconds(t);
+
+        Attack();
     }
 
     public void Attack()

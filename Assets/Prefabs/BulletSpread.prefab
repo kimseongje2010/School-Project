@@ -47,6 +47,7 @@ MonoBehaviour:
   top: {x: 0, y: 1}
   spread: 120
   isCircle: 0
+  telegraphObj: {fileID: 3573476866895228979, guid: fe649bdfca8bf144db8cb8d40cb2e6ba, type: 3}
   bullet: {fileID: 1982042198160424844, guid: 470363e53b4c94c4fad68c60e6c83bbf, type: 3}
   speed: 8
   interval: 0.1
