@@ -423,12 +423,12 @@ MonoBehaviour:
   maxHp: 1000
   attackStartDelay: 1
   attackTelegraphDelay: 1
-  attackRecoverDelay: 4
+  attackRecoverDelay: 1
   LAPos: {x: 0, y: 5, z: 0}
   LSDuration: 4
   BHPos: {x: 0, y: 0, z: 0}
   BHDuration: 3
-  MBPos: {x: 0, y: 0, z: 0}
+  MBPos: {x: 0, y: 2, z: 0}
   MBDuration: 2
 --- !u!4 &846627185
 Transform:
@@ -657,7 +657,8 @@ MonoBehaviour:
   initForce: 1.5
   distance: 1
   interval: 0.05
-  count: 5
+  count: 4
+  cycles: 2
 --- !u!1 &1047570701
 GameObject:
   m_ObjectHideFlags: 0

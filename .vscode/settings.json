@@ -67,6 +67,6 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "School Project.slnx",
+    "dotnet.defaultSolution": "School-Project.slnx",
     "dotnet.enableWorkspaceBasedDevelopment": false
 }

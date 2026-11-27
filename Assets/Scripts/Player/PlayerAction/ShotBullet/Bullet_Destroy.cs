@@ -55,5 +55,9 @@ public class Bullet_Destroy : MonoBehaviour
             component1.TakeBulletDamage();
             Destroy(gameObject);
         }
+        if (other.gameObject.TryGetComponent(out BossMissile component2))
+        {
+            component2.DestroySelf();
+        }
     }
 }

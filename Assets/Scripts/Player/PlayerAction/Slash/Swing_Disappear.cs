@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Swing_Disappear : MonoBehaviour
@@ -65,6 +66,10 @@ public class Swing_Disappear : MonoBehaviour
             component1.TakeSlashDamage();
             didGiveDamageToBoss = true;
             // Debug.Log("damaged");
+        }
+        if (collision.gameObject.TryGetComponent(out BossMissile component2))
+        {
+            component2.DestroySelf();
         }
     }
 }

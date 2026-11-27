@@ -8,8 +8,9 @@ public class BossMissileBarrage : MonoBehaviour
     [SerializeField] private float distance = 1f;
     [SerializeField] private float interval = 0.3f;
     [SerializeField] private int count = 5;
+    [SerializeField] private int cycles = 3;
 
-    private IEnumerator Attack()
+    private IEnumerator Cycle()
     {
         for (int i = 1; i < count + 1; i++)
         {
@@ -27,6 +28,18 @@ public class BossMissileBarrage : MonoBehaviour
             componentL.AddForce(dirL * initForce, ForceMode2D.Impulse);
 
             yield return new WaitForSeconds(interval);
+        }
+
+        yield return null;
+    }
+
+    private IEnumerator Attack()
+    {
+        for (int i = 0; i < cycles; i++)
+        {
+            StartCoroutine(Cycle());
+
+            yield return new WaitForSeconds(0.5f);
         }
 
         yield return null;
