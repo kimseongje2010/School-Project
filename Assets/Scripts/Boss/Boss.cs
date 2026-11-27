@@ -29,14 +29,19 @@ public class Boss : MonoBehaviour
     [SerializeField] private float attackRecoverDelay = 1f;
 
     [Header ("Laser Attack")]
-    private BossLaserAttack LA;
+    private BossLaserSweep LS;
     [SerializeField] private Vector3 LAPos;
-    [SerializeField] private float LADuration = 4f;
+    [SerializeField] private float LSDuration = 4f;
     
     [Header ("Bullet Hell")]
     private BossBulletHell BH;
     [SerializeField] private Vector3 BHPos;
     [SerializeField] private float BHDuration = 4f;
+    
+    [Header ("Missile Barrage")]
+    private BossMissileBarrage MB;
+    [SerializeField] private Vector3 MBPos;
+    [SerializeField] private float MBDuration = 2f;
 
     private BossInit bossInit;
     private BossFloat bossFloat;
@@ -50,14 +55,15 @@ public class Boss : MonoBehaviour
         hp = maxHp;
         bossInit = GetComponent<BossInit>();
         bossFloat = GetComponent<BossFloat>();
-        LA = GetComponent<BossLaserAttack>();
+        LS = GetComponent<BossLaserSweep>();
         BH = GetComponent<BossBulletHell>();
+        MB = GetComponent<BossMissileBarrage>();
 
         bossState = BossState.Init;
 
-        attacks.Add(LaserAttack);
-        attacks.Add(BulletAttack);
-        // attacks.Add(MissileAttack());
+        attacks.Add(LaserSweep);
+        attacks.Add(BulletHell);
+        attacks.Add(MissileAttack);
     }
 
     private void Start()
@@ -96,7 +102,7 @@ public class Boss : MonoBehaviour
         yield return null;
     }
 
-    private IEnumerator LaserAttack()
+    private IEnumerator LaserSweep()
     {
         bossState = BossState.StartAttack;
         Debug.Log("laser attack started!");
@@ -106,19 +112,19 @@ public class Boss : MonoBehaviour
 
         // Telegraph
         bossState = BossState.Telegraph;
-        LA.origin = LAPos;
-        LA.PrepareAttack(LADuration);
+        LS.origin = LAPos;
+        LS.PrepareAttack(LSDuration);
         // Debug.Log("position set");
         yield return new WaitForSeconds(attackTelegraphDelay);
 
         // Attack
         bossState = BossState.Attacking;
-        LA.StartAttack();
-        yield return new WaitForSeconds(LADuration);
+        LS.StartAttack();
+        yield return new WaitForSeconds(LSDuration);
 
         // Recovery
         bossState = BossState.Recovery;
-        LA.EndAttack();
+        LS.EndAttack();
         StartCoroutine(MoveTo(initPos, 0.5f));
         bossFloat.SetMovementActive(true);
         yield return new WaitForSeconds(attackRecoverDelay);
@@ -126,7 +132,7 @@ public class Boss : MonoBehaviour
         bossState = BossState.Idle;
     }
 
-    private IEnumerator BulletAttack()
+    private IEnumerator BulletHell()
     {
         bossState = BossState.StartAttack;
         Debug.Log("bullet hell attack started!");
@@ -155,8 +161,25 @@ public class Boss : MonoBehaviour
 
     private IEnumerator MissileAttack()
     {
-        // Attack logic
-        yield return new WaitForSeconds(3f);
+        bossState = BossState.StartAttack;
+        Debug.Log("missile barrage attack started!");
+        StartCoroutine(MoveTo(MBPos, 0.5f));
+        bossFloat.SetMovementActive(false);
+        yield return new WaitForSeconds(attackStartDelay);
+
+        // Attack
+        bossState = BossState.Attacking;
+        MB.StartAttack();
+        yield return new WaitForSeconds(MBDuration);
+
+        // Recovery
+        bossState = BossState.Recovery;
+        BH.EndAttack();
+        StartCoroutine(MoveTo(initPos, 0.5f));
+        bossFloat.SetMovementActive(true);
+        yield return new WaitForSeconds(attackRecoverDelay);
+
+        bossState = BossState.Idle;
     }
 
     public void BeReady()

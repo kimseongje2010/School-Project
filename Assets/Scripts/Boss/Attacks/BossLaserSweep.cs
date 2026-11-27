@@ -1,7 +1,7 @@
 using Unity.Mathematics;
 using UnityEngine;
 
-public class BossLaserAttack : MonoBehaviour
+public class BossLaserSweep : MonoBehaviour
 {
     public Vector2 origin = Vector3.zero;
     private LineRenderer lr;

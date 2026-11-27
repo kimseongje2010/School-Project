@@ -71,7 +71,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.4
+  m_Radius: 0.25
 --- !u!114 &1401090612095273474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84,9 +84,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd57907e65255264389c28b5d7941c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossMissile
-  damage: 10
+  damage: 1
   lifetime: 3
-  speed: 1
+  speed: 2
   destroyEffect: {fileID: 727122620582562847, guid: 8e8f9f054eb9a4806bc1edc20c7b332b, type: 3}
   explosionEffect: {fileID: 6224587211740163262, guid: dddbeb0321d4d214d85adbf8520afcb9, type: 3}
 --- !u!50 &3834334355289983648
@@ -305,7 +305,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

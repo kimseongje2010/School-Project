@@ -378,6 +378,7 @@ GameObject:
   - component: {fileID: 846627183}
   - component: {fileID: 846627188}
   - component: {fileID: 846627189}
+  - component: {fileID: 846627190}
   - component: {fileID: 846627186}
   - component: {fileID: 846627187}
   m_Layer: 2
@@ -424,9 +425,11 @@ MonoBehaviour:
   attackTelegraphDelay: 1
   attackRecoverDelay: 4
   LAPos: {x: 0, y: 5, z: 0}
-  LADuration: 4
+  LSDuration: 4
   BHPos: {x: 0, y: 0, z: 0}
   BHDuration: 3
+  MBPos: {x: 0, y: 0, z: 0}
+  MBDuration: 2
 --- !u!4 &846627185
 Transform:
   m_ObjectHideFlags: 0
@@ -638,6 +641,23 @@ MonoBehaviour:
     spread: 2
     duration: 0
     count: 8
+--- !u!114 &846627190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846627182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7424b5db0938f9745bcd5484a138804d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossMissileBarrage
+  missilePrefab: {fileID: 6235667561248453444, guid: a7351653789412444b9f53110c88c9e0, type: 3}
+  initForce: 1.5
+  distance: 1
+  interval: 0.05
+  count: 5
 --- !u!1 &1047570701
 GameObject:
   m_ObjectHideFlags: 0

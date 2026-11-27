@@ -7,13 +7,13 @@ public class SpreadBullet : MonoBehaviour
     public Vector2 top = new(0, 1);
     public float spread = 120; // in degree
     public bool isCircle = true;
+    public int cycles = 2;
     
     [SerializeField] private GameObject telegraphObj;
     [SerializeField] private GameObject bullet;
     [SerializeField] private float speed = 1f;
     [SerializeField] private float interval = 0.1f;
     public int count = 8;
-    [SerializeField] private int cycles = 2;
 
     private void Start()
     {
